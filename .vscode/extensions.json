@@ -1,0 +1,13 @@
+{
+  "recommendations": [
+    "ms-python.python",
+    "ms-python.black-formatter",
+    "charliermarsh.ruff",
+    "ms-toolsai.jupyter",
+    "ms-toolsai.jupyter-keymap",
+    "github.copilot",
+    "eamodio.gitlens",
+    "christian-kohler.path-intellisense",
+    "njpwerner.autodocstring"
+  ]
+}

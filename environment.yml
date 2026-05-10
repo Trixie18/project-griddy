@@ -1,0 +1,49 @@
+name: elec-forecast
+channels:
+  - pytorch
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - pip
+  # Core scientific stack
+  - numpy>=1.26
+  - pandas>=2.1
+  - scipy>=1.11
+  - matplotlib>=3.8
+  - seaborn>=0.13
+  - plotly>=5.18
+  # PyTorch — M1/MPS-aware (conda-forge builds arm64 natively)
+  - pytorch>=2.2
+  - torchvision
+  - pip:
+    # Time series & forecasting
+    - statsforecast>=1.7
+    - sktime>=0.26
+    - prophet>=1.1.5
+    - pmdarima>=2.0
+    - pytorch-forecasting>=1.0
+    - lightning>=2.2
+    # Hyperparameter tuning
+    - optuna>=3.5
+    - optuna-integration[pytorch_lightning]
+    # ML utilities
+    - scikit-learn>=1.4
+    - shap>=0.44
+    # Data & API
+    - requests>=2.31
+    - pyarrow>=14.0
+    - fastparquet
+    - python-dotenv>=1.0
+    # Dashboard
+    - streamlit>=1.32
+    - altair>=5.2
+    # Notebook
+    - jupyter>=1.0
+    - ipykernel
+    - ipywidgets
+    - nbformat
+    # Code quality
+    - black
+    - ruff
+    - pre-commit
