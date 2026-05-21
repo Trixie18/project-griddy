@@ -1,8 +1,3 @@
-"""
-Run XGBoost training outside Jupyter to avoid M1 kernel crash.
-Execute with: python scripts/run_xgb.py
-"""
-
 import sys, os, warnings
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 warnings.filterwarnings("ignore")
