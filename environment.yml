@@ -22,11 +22,10 @@ dependencies:
     - sktime>=0.26
     - prophet>=1.1.5
     - pmdarima>=2.0
-    - pytorch-forecasting>=1.0
-    - lightning>=2.2
+    - xgboost>=2.0
+    - shap>=0.44
     # Hyperparameter tuning
     - optuna>=3.5
-    - optuna-integration[pytorch_lightning]
     # ML utilities
     - scikit-learn>=1.4
     - shap>=0.44

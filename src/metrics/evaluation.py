@@ -27,20 +27,16 @@ def smape(actual: Array, forecast: Array) -> float:
 
 
 def mase(actual: Array, forecast: Array, seasonal_period: int = 24) -> float:
-    """
-    Mean Absolute Scaled Error.
-    Scaled by in-sample seasonal naive MAE.
-    < 1 means better than seasonal naive.
-    """
     actual   = np.asarray(actual, dtype=float)
     forecast = np.asarray(forecast, dtype=float)
     mask     = ~(np.isnan(actual) | np.isnan(forecast))
     actual, forecast = actual[mask], forecast[mask]
     if len(actual) == 0:
         return np.nan
-    mae_model  = np.mean(np.abs(actual - forecast))
+    mae_model   = np.mean(np.abs(actual - forecast))
     naive_diffs = np.abs(actual[seasonal_period:] - actual[:-seasonal_period])
-    if len(naive_diffs) == 0 or np.mean(naive_diffs) == 0:
+    # Guard: need enough data and non-zero denominator
+    if len(naive_diffs) < seasonal_period or np.mean(naive_diffs) < 1e-8:
         return np.nan
     return float(mae_model / np.mean(naive_diffs))
 
